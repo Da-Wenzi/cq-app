@@ -1,0 +1,71 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "IdentityServer Build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/CQ.IdentityServer/CQ.IdentityServer.Api/CQ.IdentityServer.Api.csproj"
+            ],
+            "problemMatcher": "$tsc"
+        },
+        {
+            "label": "IdentityServer Publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/CQ.IdentityServer/CQ.IdentityServer.Api/CQ.IdentityServer.Api.csproj"
+            ],
+            "problemMatcher": "$tsc"
+        },
+        {
+            "label": "IdentityServer Watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "${workspaceFolder}/CQ.IdentityServer/CQ.IdentityServer.Api/CQ.IdentityServer.Api.csproj"
+            ],
+            "problemMatcher": "$tsc"
+        },
+        {
+            "label": "Note Build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/CQ.Note/CQ.Note.Api/CQ.Note.Api.csproj"
+            ],
+            "problemMatcher": "$tsc",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Note Publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/CQ.Note/CQ.Note.Api/CQ.Note.Api.csproj"
+            ],
+            "problemMatcher": "$tsc"
+        },
+        {
+            "label": "Note Watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "${workspaceFolder}/CQ.Note/CQ.Note.Api/CQ.Note.Api.csproj"
+            ],
+            "problemMatcher": "$tsc"
+        }
+    ]
+}

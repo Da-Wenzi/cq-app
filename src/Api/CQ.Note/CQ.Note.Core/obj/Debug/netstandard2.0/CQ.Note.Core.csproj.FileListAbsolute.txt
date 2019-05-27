@@ -1,0 +1,9 @@
+D:\GitHub\cq-app\src\Api\CQ.Note\CQ.Note.Core\bin\Debug\netstandard2.0\CQ.Note.Core.deps.json
+D:\GitHub\cq-app\src\Api\CQ.Note\CQ.Note.Core\bin\Debug\netstandard2.0\CQ.Note.Core.dll
+D:\GitHub\cq-app\src\Api\CQ.Note\CQ.Note.Core\bin\Debug\netstandard2.0\CQ.Note.Core.pdb
+D:\GitHub\cq-app\src\Api\CQ.Note\CQ.Note.Core\obj\Debug\netstandard2.0\CQ.Note.Core.csprojAssemblyReference.cache
+D:\GitHub\cq-app\src\Api\CQ.Note\CQ.Note.Core\obj\Debug\netstandard2.0\CQ.Note.Core.csproj.CoreCompileInputs.cache
+D:\GitHub\cq-app\src\Api\CQ.Note\CQ.Note.Core\obj\Debug\netstandard2.0\CQ.Note.Core.AssemblyInfoInputs.cache
+D:\GitHub\cq-app\src\Api\CQ.Note\CQ.Note.Core\obj\Debug\netstandard2.0\CQ.Note.Core.AssemblyInfo.cs
+D:\GitHub\cq-app\src\Api\CQ.Note\CQ.Note.Core\obj\Debug\netstandard2.0\CQ.Note.Core.dll
+D:\GitHub\cq-app\src\Api\CQ.Note\CQ.Note.Core\obj\Debug\netstandard2.0\CQ.Note.Core.pdb

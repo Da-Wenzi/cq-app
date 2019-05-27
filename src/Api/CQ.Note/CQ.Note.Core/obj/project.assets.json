@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\Api\\cq.note\\CQ.Note.Core\\CQ.Note.Core.csproj",
+      "projectUniqueName": "d:\\GitHub\\cq-app\\src\\Api\\CQ.Note\\CQ.Note.Core\\CQ.Note.Core.csproj",
       "projectName": "CQ.Note.Core",
-      "projectPath": "D:\\GitHub\\Api\\cq.note\\CQ.Note.Core\\CQ.Note.Core.csproj",
+      "projectPath": "d:\\GitHub\\cq-app\\src\\Api\\CQ.Note\\CQ.Note.Core\\CQ.Note.Core.csproj",
       "packagesPath": "C:\\Users\\ChengQi\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\Api\\cq.note\\CQ.Note.Core\\obj\\",
+      "outputPath": "d:\\GitHub\\cq-app\\src\\Api\\CQ.Note\\CQ.Note.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

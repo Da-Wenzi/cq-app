@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\Api\\CQ.IdentityServer\\CQ.IdentityServer.Core\\CQ.IdentityServer.Core.csproj",
+      "projectUniqueName": "d:\\GitHub\\cq-app\\src\\Api\\CQ.IdentityServer\\CQ.IdentityServer.Core\\CQ.IdentityServer.Core.csproj",
       "projectName": "CQ.IdentityServer.Core",
-      "projectPath": "D:\\GitHub\\Api\\CQ.IdentityServer\\CQ.IdentityServer.Core\\CQ.IdentityServer.Core.csproj",
+      "projectPath": "d:\\GitHub\\cq-app\\src\\Api\\CQ.IdentityServer\\CQ.IdentityServer.Core\\CQ.IdentityServer.Core.csproj",
       "packagesPath": "C:\\Users\\ChengQi\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\Api\\CQ.IdentityServer\\CQ.IdentityServer.Core\\obj\\",
+      "outputPath": "d:\\GitHub\\cq-app\\src\\Api\\CQ.IdentityServer\\CQ.IdentityServer.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using IdentityModel;
 using IdentityServer4.Models;
 
 namespace CQ.IdentityServer.Models
@@ -44,5 +45,43 @@ namespace CQ.IdentityServer.Models
                 }
             };
         }
+
+
+        public static IEnumerable<ApiResource> GetResources()
+        {
+            return new List<ApiResource>
+            {
+                new ApiResource
+                {
+                    Name = "NoteApi",
+                    DisplayName = "",
+                    ApiSecrets = 
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    UserClaims = 
+                    {
+                        JwtClaimTypes.Name,
+                        JwtClaimTypes.Email,
+                        JwtClaimTypes.PhoneNumber
+                    },
+                    Scopes = 
+                    {
+                        new Scope
+                        {
+                            Name = "NoteApi.Add",
+                            DisplayName = "添加笔记接口"
+                        },
+
+                        new Scope
+                        {
+                            Name = "NoteApi.Get",
+                            DisplayName = "获取笔记接口"
+                        }
+                    }
+                }
+            };
+        }
+
     }
 }

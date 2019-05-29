@@ -4,7 +4,7 @@ body {
   height: 100%;
   font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
     "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 html,
@@ -47,31 +47,82 @@ menu {
   height: 100%;
 }
 
-.f-pre {
-  overflow: hidden;
-  text-align: left;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  word-break: break-all;
-}
-
-.f-tal {
+.tal {
   text-align: left;
 }
-.f-tac {
+.tac {
   text-align: center;
 }
-.f-tar {
+.tar {
   text-align: right;
 }
-.f-taj {
+.taj {
   text-align: justify;
   text-justify: inter-ideograph;
 }
 
-.f-toe {
+.toe {
   overflow: hidden;
   word-wrap: normal;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.padding-0 {
+  padding: 0px;
+}
+
+.padding-2 {
+  padding: 2px;
+}
+
+.padding-4 {
+  padding: 4px;
+}
+
+.padding-6 {
+  padding: 6px;
+}
+
+.line-2 {
+  width: 0px;
+  height: 2px;
+}
+
+.line-4 {
+  width: 0px;
+  height: 4px;
+}
+
+.line-6 {
+  width: 0px;
+  height: 6px;
+}
+
+.line-8 {
+  width: 0px;
+  height: 8px;
+}
+
+.line-10 {
+  width: 0px;
+  height: 10px;
+}
+
+.line-20 {
+  width: 0px;
+  height: 20px;
+}
+
+.line-30 {
+  width: 0px;
+  height: 30px;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
 }

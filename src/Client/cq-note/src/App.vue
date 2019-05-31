@@ -16,17 +16,21 @@
                   <cq-note-filter></cq-note-filter>
                 </el-header>
                 <el-main class="padding-0">
-                  <cq-note-list></cq-note-list>
+                  <cq-note-list :notes="notes"></cq-note-list>
                 </el-main>
               </el-container>
             </el-aside>
             <el-main class="padding-0">
               <el-container class="full">
                 <el-header height="60px" class="padding-0">
-                  <cq-note-title></cq-note-title>
+                  <cq-note-title :note="note"></cq-note-title>
                 </el-header>
                 <el-main class="padding-0">
-                  <mavon-editor class="full" />
+                  <mavon-editor
+                    class="full"
+                    v-on:save="save"
+                    v-model="note.content"
+                  />
                 </el-main>
               </el-container>
             </el-main>
@@ -49,6 +53,31 @@ export default {
   components: { CqNav, CqNoteList, CqNoteFilter, CqNoteTitle, CqToolbar },
   data() {
     return {};
+  },
+  watch: {
+    "note.content": function(newVal) {
+      this.$store.dispatch("note/modifyNoteContent", newVal);
+    }
+  },
+  computed: {
+    note() {
+      var editNote = this.$store.state.note.editNote;
+      if (editNote) {
+        return this.$store.state.note.editNote;
+      }
+      return {};
+    },
+    notes() {
+      return this.$store.state.note.notes;
+    }
+  },
+  methods: {
+    save: function() {
+      this.$store.dispatch("note/async");
+    }
+  },
+  created() {
+    this.$store.dispatch("note/getNotes");
   }
 };
 </script>

@@ -1,12 +1,17 @@
 <template>
   <div class="note-list padding-6">
-    <el-row class="note-item" v-for="note in notes" v-bind:key="note.id">
+    <el-row
+      v-bind:class="['note-item', { 'note-item-select': i === index }]"
+      v-for="(note, index) in notes"
+      v-bind:key="note.id"
+      v-on:click.native="select(index, note)"
+    >
       <el-col :span="24">
         <div class="note-item-title">
           {{ note.title }}
         </div>
         <div class="note-item-content">
-          {{ note.desc }}
+          {{ note.description }}
           <div class="note-item-content-date">
             <span>{{ note.date }}</span>
           </div>
@@ -19,43 +24,17 @@
 <script>
 export default {
   name: "cq-note-list",
+  props: ["notes"],
   data() {
     return {
-      notes: [
-        {
-          id: 1,
-          title: "企业信息化战略与实施",
-          desc:
-            "是对物料需求计划所需能力进行核算的一种计划管理方法，通过分析比较MRP的需求和企业现有的生产能力，及早的发现能力瓶颈所在，为实现企业生产计划而提供能力方面的保障。",
-          content: "",
-          date: "2019-5-28"
-        },
-        {
-          id: 2,
-          title: "企业信息化战略与实施",
-          desc:
-            "是对物料需求计划所需能力进行核算的一种计划管理方法，通过分析比较MRP的需求和企业现有的生产能力，及早的发现能力瓶颈所在，为实现企业生产计划而提供能力方面的保障。",
-          content: "",
-          date: "2019-5-28"
-        },
-        {
-          id: 3,
-          title: "企业信息化战略与实施",
-          desc:
-            "是对物料需求计划所需能力进行核算的一种计划管理方法，通过分析比较MRP的需求和企业现有的生产能力，及早的发现能力瓶颈所在，为实现企业生产计划而提供能力方面的保障。",
-          content: "",
-          date: "2019-5-28"
-        },
-        {
-          id: 4,
-          title: "企业信息化战略与实施",
-          desc:
-            "是对物料需求计划所需能力进行核算的一种计划管理方法，通过分析比较MRP的需求和企业现有的生产能力，及早的发现能力瓶颈所在，为实现企业生产计划而提供能力方面的保障。",
-          content: "",
-          date: "2019-5-28"
-        }
-      ]
+      i: null
     };
+  },
+  methods: {
+    select: function(index, note) {
+      this.i = index;
+      this.$store.dispatch("note/selectNote", note);
+    }
   }
 };
 </script>
@@ -74,19 +53,6 @@ export default {
   border-left: 1px solid #f3f3f3;
 }
 
-.note-list .note-item:first-child {
-  border-top: 1px solid #f3f3f3;
-}
-
-.note-list .note-item:hover {
-  background-color: #c1deec;
-  border: 1px solid #8bcbe8;
-}
-
-.note-list .note-item:hover + .note-item {
-  border-top: none;
-}
-
 .note-item .note-item-content {
   padding: 2px;
   height: 70px;
@@ -102,10 +68,41 @@ export default {
   margin-bottom: 6px;
 }
 
-.note-item-title {
+.note-item .note-item-title {
   height: 30px;
   line-height: 30px;
   padding: 2px;
   font-weight: 500;
+}
+
+.note-list .note-item:first-child {
+  border-top: 1px solid #f3f3f3;
+}
+
+.note-list .note-item:hover {
+  background-color: #eff8fe;
+  border: 1px solid #c3e5f5;
+}
+
+.note-list .note-item:hover + .note-item {
+  border-top: none;
+}
+
+.note-list .note-item-select {
+  background-color: #c1deec;
+  border: 1px solid #8bcbe8;
+}
+
+.note-list .note-item-select + .note-item {
+  border-top: none;
+}
+
+.note-list .note-item-select.note-item:hover {
+  background-color: #c1deec;
+  border: 1px solid #8bcbe8;
+}
+
+.note-list .note-item:first-child.note-item-select {
+  border-top: 1px solid #8bcbe8;
 }
 </style>

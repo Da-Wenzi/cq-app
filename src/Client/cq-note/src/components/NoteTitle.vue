@@ -8,6 +8,7 @@
             size="mini"
             class="note-title-input"
             placeholder="请输入标题内容"
+            v-model="note.title"
           ></el-input>
         </div>
         <div class="note-title-right fr tar">
@@ -47,7 +48,20 @@
 
 <script>
 export default {
-  name: "cq-note-title"
+  name: "cq-note-title",
+  props: {
+    note: Object
+  },
+  watch: {
+    "note.title": function(newVal) {
+      this.$store.dispatch("note/modifyNoteTitle", newVal);
+    }
+  },
+  data() {
+    return {
+      title: "日期"
+    };
+  }
 };
 </script>
 
@@ -66,6 +80,7 @@ export default {
 
 .note-title-input input {
   border: none;
+  color: #0066cc;
 }
 
 .note-title-right {

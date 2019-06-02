@@ -26,10 +26,30 @@ namespace CQ.Note.Core
                 .HasMaxLength(200);
 
             modelBuilder.Entity<Models.Note>()
-                 .HasMany(n => n.NoteContents)
-                 .WithOne(c => c.Note)
-                 .HasForeignKey(c => c.NoteId)
-                 .OnDelete(DeleteBehavior.Cascade);
+                .HasMany(n => n.NoteContents)
+                .WithOne(c => c.Note)
+                .HasForeignKey(c => c.NoteId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
+            modelBuilder.Entity<Models.Note>()
+                .HasMany(n => n.Attachments)
+                .WithOne(c => c.Note)
+                .HasForeignKey(c => c.NoteId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
+            modelBuilder.Entity<Models.NoteContent>()
+                .HasKey(n => n.Id);
+
+
+            modelBuilder.Entity<Models.NoteAttachment>()
+                .HasKey(n => n.Id);
+
+            modelBuilder.Entity<Models.NoteAttachment>()
+                .Property(n => n.Type)
+                .HasMaxLength(100);
+
         }
     }
 }

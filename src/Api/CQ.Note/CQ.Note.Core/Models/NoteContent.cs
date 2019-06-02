@@ -10,6 +10,10 @@ namespace CQ.Note.Core.Models
         /// </summary>
         public string Content { get; set; }
 
+        /// <summary>
+        /// 获取或设置 笔记内容序号。
+        /// </summary>
+        public int Sort { get; set; }
 
 
         public Guid NoteId { get; set; }

@@ -40,6 +40,20 @@ namespace CQ.Note.Core.Services.Impl
                 {
                     entity.NoteContents = new List<NoteContent>();
                     entity = Mapper.Map(note, entity);
+
+                    if (note.NoteAttachments.Any())
+                    {
+                        if (entity.NoteAttachments == null)
+                        {
+                            entity.NoteAttachments = new List<NoteAttachment>();
+                        }
+
+                        Mapper.Map<List<NoteAttachment>>(note.NoteAttachments)
+                            .ForEach(n => entity.NoteAttachments.Add(n));
+                    }
+
+
+
                     Repository.Update(entity);
                 }
                 else

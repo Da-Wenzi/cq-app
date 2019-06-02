@@ -53,7 +53,9 @@ const actions = {
 
     context.commit("addNote", note);
     console.log(context);
-  }
+  },
+
+  addNoteAttachment(context) {}
 };
 
 const mutations = {

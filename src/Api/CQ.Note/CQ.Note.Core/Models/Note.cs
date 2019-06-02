@@ -19,7 +19,12 @@ namespace CQ.Note.Core.Models
         /// <summary>
         /// 获取或设置 笔记内容。
         /// </summary>
-        public virtual IEnumerable<NoteContent> NoteContents { get; set; }
+        public virtual ICollection<NoteContent> NoteContents { get; set; }
+
+        /// <summary>
+        /// 获取或设置 笔记附件。
+        /// </summary>
+        public virtual ICollection<NoteAttachment> NoteAttachments { get; set; }
 
 
 

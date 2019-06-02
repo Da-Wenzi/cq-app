@@ -21,6 +21,9 @@ namespace CQ.Note.Core.Mapper
                 });
             CreateMap<Core.Dto.NoteInputDto, Core.Models.Note>()
                 .ForMember(m => m.NoteContents, options => options.MapFrom<NoteContentResolver>());
+
+
+            CreateMap<Core.Dto.NoteAttachmentInputDto, Core.Models.NoteAttachment>();
         }
     }
 

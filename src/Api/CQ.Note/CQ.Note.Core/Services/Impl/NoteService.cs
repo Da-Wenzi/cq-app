@@ -36,15 +36,15 @@ namespace CQ.Note.Core.Services.Impl
             foreach (NoteInputDto note in notes)
             {
                 Models.Note entity = entities.Find(e => e.Id == note.Id);
-                entity.NoteContents = new List<NoteContent>();
-                entity = Mapper.Map(note, entity);
                 if (entity != null)
                 {
+                    entity.NoteContents = new List<NoteContent>();
+                    entity = Mapper.Map(note, entity);
                     Repository.Update(entity);
                 }
                 else
                 {
-                    Repository.Insert(entity);
+                    Repository.Insert(Mapper.Map<Models.Note>(note));
                 }
             }
             UnitOfWork.Commit();

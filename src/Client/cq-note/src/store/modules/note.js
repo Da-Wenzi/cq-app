@@ -28,7 +28,7 @@ const actions = {
   },
 
   modifyNoteContent(context, content) {
-    var desc = content;
+    let desc = content;
     if (content && content.length > 100) {
       desc = content.substring(0, 100);
     }
@@ -43,6 +43,16 @@ const actions = {
 
   async(context) {
     noteApi.async(context.state.editNotes);
+  },
+
+  addNote(context) {
+    let note = {
+      title: "",
+      content: ""
+    };
+
+    context.commit("addNote", note);
+    console.log(context);
   }
 };
 
@@ -71,7 +81,10 @@ const mutations = {
     if (note && state.editNotes.indexOf(note) == -1) {
       state.editNotes.push(note);
     }
-    console.log(state);
+  },
+
+  addNote(state, note) {
+    state.notes.push(note);
   }
 };
 

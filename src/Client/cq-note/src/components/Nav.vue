@@ -2,7 +2,7 @@
   <el-container class="nav full">
     <el-header>
       <div class="line-10"></div>
-      <el-button icon="el-icon-plus">添加新笔记</el-button>
+      <el-button icon="el-icon-plus" v-on:click="addNote">添加新笔记</el-button>
     </el-header>
     <el-main class="padding-0">
       <el-tree class="full" :data="nav"> </el-tree>
@@ -73,6 +73,11 @@ export default {
         label: "label"
       }
     };
+  },
+  methods: {
+    addNote: function() {
+      this.$store.dispatch("note/addNote");
+    }
   }
 };
 </script>

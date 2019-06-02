@@ -30,6 +30,7 @@
                     class="full"
                     v-on:save="save"
                     v-model="note.content"
+                    v-on:imgAdd="imgAdd"
                   />
                 </el-main>
               </el-container>
@@ -74,6 +75,9 @@ export default {
   methods: {
     save: function() {
       this.$store.dispatch("note/async");
+    },
+    imgAdd: function(pos, file) {
+      console.log(pos, file);
     }
   },
   created() {

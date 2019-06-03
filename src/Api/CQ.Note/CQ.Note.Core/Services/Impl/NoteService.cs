@@ -35,30 +35,37 @@ namespace CQ.Note.Core.Services.Impl
                 .Where(n => noteIds.Contains(n.Id)).ToList();
             foreach (NoteInputDto note in notes)
             {
+                //附件映射。
+                List<Models.NoteAttachment> attachments = new List<NoteAttachment>();
+                if (note.NoteAttachments.Any())
+                {
+                    attachments = Mapper.Map<List<NoteAttachment>>(note.NoteAttachments);
+                }
+
                 Models.Note entity = entities.Find(e => e.Id == note.Id);
+
                 if (entity != null)
                 {
                     entity.NoteContents = new List<NoteContent>();
                     entity = Mapper.Map(note, entity);
 
-                    if (note.NoteAttachments.Any())
+                    if (attachments.Any())
                     {
                         if (entity.NoteAttachments == null)
                         {
                             entity.NoteAttachments = new List<NoteAttachment>();
                         }
 
-                        Mapper.Map<List<NoteAttachment>>(note.NoteAttachments)
-                            .ForEach(n => entity.NoteAttachments.Add(n));
+                        attachments.ForEach(n => entity.NoteAttachments.Add(n));
                     }
-
-
 
                     Repository.Update(entity);
                 }
                 else
                 {
-                    Repository.Insert(Mapper.Map<Models.Note>(note));
+                    entity = Mapper.Map<Models.Note>(note);
+                    entity.NoteAttachments = Mapper.Map<List<NoteAttachment>>(note.NoteAttachments);
+                    Repository.Insert(entity);
                 }
             }
             UnitOfWork.Commit();

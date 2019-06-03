@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CQ.Note.Core.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 
@@ -12,12 +13,14 @@ namespace CQ.Note.Api.Controllers
     {
         private readonly IMapper _mapper;
         private readonly INoteService _noteService;
+        private readonly ILoggerFactory _loggerFactory;
 
 
-        public NoteController(IMapper mapper, INoteService noteService)
+        public NoteController(IMapper mapper, INoteService noteService, ILoggerFactory loggerFactory)
         {
             _mapper = mapper;
             _noteService = noteService;
+            loggerFactory.CreateLogger<NoteController>().LogError("11111111111111111111111111111111");
         }
 
 

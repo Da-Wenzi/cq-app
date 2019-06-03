@@ -33,7 +33,7 @@ namespace CQ.Note.Core
 
 
             modelBuilder.Entity<Models.Note>()
-                .HasMany(n => n.Attachments)
+                .HasMany(n => n.NoteAttachments)
                 .WithOne(c => c.Note)
                 .HasForeignKey(c => c.NoteId)
                 .OnDelete(DeleteBehavior.Cascade);

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace CQ.Note.Core.Mapper
+namespace CQ.Note.Core.Profiles
 {
     public class NoteProfile : Profile
     {
@@ -28,9 +28,9 @@ namespace CQ.Note.Core.Mapper
     }
 
 
-    public class NoteContentResolver : IValueResolver<Core.Dto.NoteInputDto, Core.Models.Note, IEnumerable<NoteContent>>
+    public class NoteContentResolver : IValueResolver<Core.Dto.NoteInputDto, Core.Models.Note, ICollection<NoteContent>>
     {
-        public IEnumerable<NoteContent> Resolve(NoteInputDto source, Models.Note destination, IEnumerable<NoteContent> destMember, ResolutionContext context)
+        public ICollection<NoteContent> Resolve(NoteInputDto source, Models.Note destination, ICollection<NoteContent> destMember, ResolutionContext context)
         {
             if (source.Content == null)
             {
@@ -41,7 +41,7 @@ namespace CQ.Note.Core.Mapper
             {
                 Id = Guid.NewGuid(),
                 Content = s
-            });
+            }).ToList();
         }
     }
 }

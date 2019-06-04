@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.FileProviders;
-using System.IO;
+﻿using CQ.Note.Core.Config;
+using CQ.Note.Core.Providers;
 
 namespace CQ.Note.Core.Events
 {
@@ -15,10 +15,9 @@ namespace CQ.Note.Core.Events
 
         public void Handler(PersistentImg @event)
         {
-            //using (FileStream memory = new FileStream())
-            //{
-                
-            //}
+            FileInfo fileInfo = _fileProvider.Save(@event.FileName, @event.Bytes, FilePathGenerateType.Date);
+            @event.Path = fileInfo.FilePath;
+            @event.FileName = fileInfo.FileName;
         }
     }
 }

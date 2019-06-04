@@ -20,10 +20,11 @@ namespace CQ.Note.Core.Profiles
                     );
                 });
             CreateMap<Core.Dto.NoteInputDto, Core.Models.Note>()
-                .ForMember(m => m.NoteContents, options => options.MapFrom<NoteContentResolver>());
+                .ForMember(m => m.NoteContents, options => options.MapFrom<NoteContentResolver>())
+                .ForMember(m => m.NoteAttachments, options => options.Ignore());
 
 
-            CreateMap<Core.Dto.NoteAttachmentInputDto, Core.Models.NoteAttachment>();
+            //CreateMap<Core.Dto.NoteAttachmentInputDto, Core.Models.NoteAttachment>();
         }
     }
 

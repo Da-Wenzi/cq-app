@@ -39,6 +39,20 @@ namespace CQ.Note.Core.Events
         }
 
 
+        public void UnSubscribe<TEvent>(IEventHandler<TEvent> handler)
+            where TEvent : IEvent
+        {
+            lock (_obj)
+            {
+                Type eventType = typeof(TEvent);
+                if (_eventHandlers.TryGetValue(eventType, out List<object> handers))
+                {
+                    handers.Remove(handler);
+                }
+            }
+        }
+
+
 
         public void Publish<TEvent>(TEvent @event, Action<TEvent, bool, Exception> callBack)
             where TEvent : IEvent
@@ -50,9 +64,9 @@ namespace CQ.Note.Core.Events
                 {
                     try
                     {
-                        foreach (var obj in handers)
+                        foreach (object obj in handers)
                         {
-                            var hander = obj as IEventHandler<TEvent>;
+                            IEventHandler<TEvent> hander = obj as IEventHandler<TEvent>;
                             hander.Handler(@event);
                             callBack(@event, true, null);
                         }

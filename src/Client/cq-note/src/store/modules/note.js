@@ -55,7 +55,9 @@ const actions = {
     console.log(context);
   },
 
-  addNoteAttachment(context) {}
+  addNoteAttachment(context) {
+    context.commit("addNote", null);
+  }
 };
 
 const mutations = {

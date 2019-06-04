@@ -10,7 +10,9 @@ namespace CQ.Note.Core.Events
 
         public string Path { get; set; }
 
+        public string Md5 { get; set; }
 
-        public byte[] Bytes => Convert.FromBase64String(Base64);
+
+        public byte[] Bytes => Convert.FromBase64String(Base64.Replace("data:image/png;base64,", ""));
     }
 }

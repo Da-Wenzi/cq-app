@@ -16,7 +16,7 @@ namespace CQ.Note.Core.Services.Impl
         protected readonly IRepository<TEntity, TKey> Repository;
         protected readonly IMapper Mapper;
 
-        public Service(IUnitOfWork uow, IRepository<TEntity, TKey> repository,IMapper mapper)
+        public Service(IUnitOfWork uow, IRepository<TEntity, TKey> repository, IMapper mapper)
         {
             UnitOfWork = uow;
             Repository = repository;
@@ -62,6 +62,5 @@ namespace CQ.Note.Core.Services.Impl
                 UnitOfWork.Commit();
             }
         }
-
     }
 }

@@ -48,6 +48,7 @@ import CqNoteList from "./components/NoteList.vue";
 import CqNoteFilter from "./components/NoteFilter.vue";
 import CqNoteTitle from "./components/NoteTitle.vue";
 import CqToolbar from "./components/Toolbar.vue";
+import SparkMD5 from "spark-md5";
 
 export default {
   name: "app",
@@ -77,6 +78,19 @@ export default {
       this.$store.dispatch("note/async");
     },
     imgAdd: function(pos, file) {
+      var fileReader = new FileReader();
+      var spark = new SparkMD5();
+      if (file.size > 1024 * 1024 * 10) {
+        var data1 = file.slice(0, 1024 * 1024 * 10); //将文件进行分块 file.slice(start,length)
+        fileReader.readAsBinaryString(data1); //将文件读取为二进制码
+      } else {
+        fileReader.readAsBinaryString(file);
+      }
+      fileReader.onload = function(e) {
+        spark.appendBinary(e.target.result);
+        var md5 = spark.end();
+        file.md5 = md5;
+      };
       console.log(pos, file);
     }
   },
